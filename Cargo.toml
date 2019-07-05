@@ -1,0 +1,19 @@
+[package]
+name = "native-tls-ext"
+version = "0.1.0"
+authors = ["Fortanix, Inc."]
+license = "MPL-2.0"
+repository = "https://github.com/fortanix/native-tls-ext"
+
+[dependencies]
+hyper-native-tls = "0.2.2"
+native-tls = "0.1.2"
+pkix = { git = "https://github.com/fortanix/pkix.git" }
+quick-error = "1.1.0"
+rustc-serialize = "0.3"
+
+# This specification should match the one in native-tls/Cargo.toml
+[target.'cfg(not(any(target_os = "windows", target_os = "macos")))'.dependencies]
+openssl = "0.9.24"
+openssl-sys = "0.9.24"
+openssl-probe = "0.1.1"
